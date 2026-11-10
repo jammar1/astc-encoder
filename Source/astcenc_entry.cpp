@@ -805,6 +805,7 @@ void astcenc_context_free(
 	{
 		astcenc_contexti* ctx = &ctxo->context;
 		aligned_free<compression_working_buffers>(ctx->working_buffers);
+		delete[] ctx->input_alpha_averages;
 		if (ctx->owns_bsd)
 		{
 			aligned_free<const block_size_descriptor>(ctx->bsd);
